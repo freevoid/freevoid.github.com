@@ -1,0 +1,21 @@
+canvas {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: -9999;
+}
+
+.content {
+    position: relative;
+    width: 900px;
+    border: 2px solid black;
+    margin-left: 50%;
+    left:-450px;
+    background-color: #fff;
+    padding: 15px;
+    margin-top: 50px;
+}
+
+body {
+    background-color: #efefef;
+}
