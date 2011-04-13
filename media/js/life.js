@@ -119,7 +119,7 @@ function Life(canvas, options) {
     };
 
     // initialize methods
-    
+
     this.convert_page_coords = function (pagex, pagey) {
         return [Math.floor(pagex / this_.cell_size) + 1,
                 Math.floor(pagey / this_.cell_size)];
@@ -205,7 +205,7 @@ function Life(canvas, options) {
             }
         }
     }
-    
+
     this.neighboor_indexes = function (x, y) {
         return [
             [x-1, y],
@@ -256,6 +256,14 @@ function Life(canvas, options) {
         this_.draw_population();
     }
 
+    this.faster = function () {
+        this_.set_interval(this_.redraw_interval/1.3);
+    }
+
+    this.slower = function () {
+        this_.set_interval(this_.redraw_interval*1.3);
+    }
+
     this.set_interval = function (new_interval, force_start) {
         clearInterval(this_.timer);
         this_.redraw_interval = new_interval;
@@ -299,5 +307,3 @@ function Life(canvas, options) {
 
     this.init();
 }
-
-

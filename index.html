@@ -11,7 +11,7 @@
             life = new Life(document.getElementById("life_canvas"),
                 {
                 live_color: "#dbdbdb;",
-                random_rounds: 500,
+                //random_rounds: 500,
                 initial_draw: true,
                 fill_random: true,
                 redraw_interval: 2500,
@@ -37,11 +37,23 @@
         </p>
 
         <p>To be soon: links, icons, contacts.</p>
+
     </div>
 
     <div class="content">
         <a href="http://projecteuler.net/"><img src="http://projecteuler.net/profile/devlish.png" title="Project Euler profile: devlish" /></a>
     </div>
+
+    <div class="content">
+        <fieldset class="life_controls">
+            <legend>Life controls</legend>
+            <a href="#" onclick="life.slower();" >slower</a>
+            <a href="#" onclick="life.faster();" >faster</a>
+            <a href="#" onclick="life.pause();" >pause</a>
+            <a href="#" onclick="life.start();" >continue</a>
+        </fieldset>
+    </div>
+
 
     <canvas id="life_canvas">Need canvas supporting browser. Go get it!</canvas>
 </body>
