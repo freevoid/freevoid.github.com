@@ -59,8 +59,8 @@ function make_random_grid(width, height, rounds) {
 
 function prepare_canvas(canvas) {
     var context = canvas.getContext('2d');
-    canvas.width = screen.width;
-    canvas.height = screen.height;
+    canvas.width = document.width;
+    canvas.height = document.height;
     return context;
 }
 
