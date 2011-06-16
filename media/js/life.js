@@ -121,7 +121,7 @@ function Life(canvas, options) {
     // initialize methods
 
     this.convert_page_coords = function (pagex, pagey) {
-        return [Math.floor(pagex / this_.cell_size) + 1,
+        return [Math.floor(pagex / this_.cell_size),
                 Math.floor(pagey / this_.cell_size)];
     };
 
