@@ -126,13 +126,14 @@ function Life(canvas, options) {
     };
 
     this.init_events = function () {
-        $(this_.canvas).mousedown(function(event) {
+        var event_container = $(this_.canvas).parent();
+        event_container.mousedown(function(event) {
                 var cell_coords = this_.convert_page_coords(event.pageX, event.pageY);
                 this_.draw_mode = true;
                 this_.current_draw_cell = cell_coords;
                 this_.toggle_cell(cell_coords[0], cell_coords[1]);
                 });
-        $(this_.canvas).mousemove(function(event) {
+        event_container.mousemove(function(event) {
                 if (this_.draw_mode) {
                     var cell_coords = this_.convert_page_coords(event.pageX, event.pageY);
                     if (!arrays_eq(cell_coords, this_.current_draw_cell)) {
@@ -140,7 +141,7 @@ function Life(canvas, options) {
                         this_.toggle_cell(cell_coords[0], cell_coords[1]);
                     }
                 }});
-        $(this_.canvas).mouseup(function(event) {
+        event_container.mouseup(function(event) {
                 this_.draw_mode = false;
                 });
     };
