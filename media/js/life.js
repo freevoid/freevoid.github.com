@@ -1,20 +1,39 @@
+/*
+ * Copyright (C) 2011 by Nikolay Zakharov <nikolay@desh.su>
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *     FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *     AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *     THE SOFTWARE.
+ */
+
 /* helper functions */
 
 function classic_life(current_state, live_neighboors, dead_neighboors) {
     var new_state = 0;
-    //console.log("MAKE DECISION ABOUT", cellx, celly, "LIVE NEIGHBOORS:", live_neighboors, "CURRENT:", is_live);
     if (current_state) {
         if (live_neighboors == 2 || live_neighboors == 3) {
-            //console.log("STAY LIVE!");
             new_state = 1;
         }
     } else {
         if (live_neighboors == 3) {
-            //console.log("LIVEN!");
             new_state = 1;
         }
     }
-    //console.log("DECIDED TO", new_state?"LIVE":"DIE");
+
     return new_state;
 }
 
@@ -259,10 +278,12 @@ function Life(canvas, options) {
 
     this.faster = function () {
         this_.set_interval(this_.redraw_interval/1.3);
+        return false;
     }
 
     this.slower = function () {
         this_.set_interval(this_.redraw_interval*1.3);
+        return false;
     }
 
     this.set_interval = function (new_interval, force_start) {
@@ -277,6 +298,7 @@ function Life(canvas, options) {
     this.pause = function () {
         clearInterval(this_.timer);
         this_.started = false;
+        return false;
     }
 
     this.start = function () {
@@ -285,11 +307,21 @@ function Life(canvas, options) {
                     this_.redraw_interval);
             this_.started = true;
         }
+        return false;
+    }
+
+    this.toggle = function () {
+        if (this_.started) {
+            return this_.pause();
+        } else {
+            return this_.start();
+        }
     }
 
     this.inject = function (count) {
         inject_randomness_in_grid(this_.current, this_.grid_width,
                 this_.grid_height, count);
+        return false;
     }
 
     this.change_decider_from_st = function (when_to_stay_live_st, when_to_liven_st) {
@@ -304,6 +336,7 @@ function Life(canvas, options) {
         this_.current = make_empty_grid(this_.grid_width,
                 this_.grid_height);
         clear_canvas(this_.canvas);
+        return false;
     }
 
     this.init();
