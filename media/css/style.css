@@ -20,3 +20,16 @@ canvas {
 body {
     background-color: #efefef;
 }
+
+.avatar {
+float: right;
+}
+
+ul.icons {
+    float: right;
+    list-style-type: none;
+}
+.icons img {
+    padding-bottom: 1em;
+    float:right;
+}
