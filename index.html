@@ -1,71 +1,90 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-    <meta name='yandex-verification' content='6961e5e4b16133d3' />
-	<title>Nikolay Zakharov</title>
 
-    <link rel="me" href="http://github.com/freevoid/" />
-    <link rel="me" href="http://linkedin.com/in/freevoid/" />
+<head>
+    <meta charset="UTF-8">
+    <title>Nikolay Zakharov</title>
+
+    <meta name=viewport content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+    <link rel="me" href="https://github.com/freevoid/" />
+    <link rel="me" href="https://linkedin.com/in/freevoid/" />
     <link rel="me" href="https://bitbucket.org/freevoid/" />
 
-    <link rel="stylesheet" type="text/css" href="media/css/style.css" media="all"/>
-    <script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.7/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="media/css/style.css" media="all" />
+</head>
+
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <div class="ui raised padded left aligned text fluid container segment">
+                <h2 class="ui image header">
+                    <img class="image" alt="avatar" src="http://gravatar.com/avatar/631f2b6ec67e606198304af36661bc98" />
+                    <div class="content">
+                        Nikolay Zakharov</div>
+                </h2>
+
+                <p>I'm a professional programmer and computer enthusiast from Redmond, Washington.</p>
+
+                <h3>Contacts/links</h3>
+                <ul class="ui list">
+                    <li><i class="envelope icon"></i> nikolay@desh.su</li>
+                    <li><a href="https://github.com/freevoid/"><i class="github icon"></i>github.com/freevoid/</a></li>
+                    <li><a href="https://bitbucket.org/freevoid/"><i class="bitbucket icon"></i>bitbucket.org/freevoid/</a></li>
+                    <li><a href="https://linkedin.com/in/freevoid/"><i class="linkedin icon"></i>linkedin.com/in/freevoid/</a></li>
+                </ul>
+
+                <div class="ui  list">
+                    <div class="item">
+                        <a href="https://projecteuler.net/"><img alt="Project Euler tag" src="https://projecteuler.net/profile/desh.png" title="Project Euler profile: desh" /></a>
+                    </div>
+                </div>
+
+                <h4>Life controls</h4>
+                <i href="#" class="backward link icon" onclick="return life.slower();"></i>
+                <i href="#" class="pause link icon" onclick="return life.toggle();"></i>
+                <i href="#" class="forward link icon" onclick="return life.faster();"></i>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="life_canvas">No canvas?!</canvas>
+
+    <script src="https://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>
     <script src="media/js/life.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            life = new Life(document.getElementById("life_canvas"),
-                {
-                live_color: "#dbdbdb;",
+        $(document).ready(function() {
+            life = new Life(document.getElementById("life_canvas"), {
+                live_color: "#dbdbdb",
                 //random_rounds: 500,
                 initial_draw: true,
                 fill_random: true,
-                redraw_interval: 2500,
-                decide_function: make_decider([2,3], [3]) // classic life game, example of make_decider
+                redraw_interval: 1000,
+                decide_function: make_decider([2, 3], [3]) // classic life game, example of make_decider
             });
             life.start();
 
         });
     </script>
-</head>
-<body>
-    <canvas id="life_canvas">No canvas?!</canvas>
-    <div class="content">
 
-        <ul class="icons">
-            <li>
-                <img class="avatar" alt="avatar" src="http://gravatar.com/avatar/631f2b6ec67e606198304af36661bc98" />
-            </li>
-            <li>
-                <a href="http://projecteuler.net/"><img alt="Project Euler tag" src="http://projecteuler.net/profile/desh.png" title="Project Euler profile: desh" /></a>
-            </li>
-            <li>
-                <a href="http://ru.linkedin.com/pub/nikolay-zakharov/34/6bb/54b"><img src="http://www.linkedin.com/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" border="0" alt="View Nikolay Zakharov's profile on LinkedIn"></a>
-            </li>
-
-        </ul>
-
-        <h2>Nikolay Zakharov</h2>
-
-        <p>I'm a professional programmer and computer enthusiast from Redmond, Washington.</p>
-
-        <h3>Contacts/links</h3>
-            <ul>
-                <li>email: niko<a href="http://www.google.com/recaptcha/mailhide/d?k=0132iq9jd27gmzTBFdpf2f0w==&amp;c=EEwuhdKjPXBnWKJZ3zK0sA==" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\0750132iq9jd27gmzTBFdpf2f0w\75\75\46c\75EEwuhdKjPXBnWKJZ3zK0sA\75\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">...</a>@desh.su</li>
-                <li>github: <a href="http://github.com/freevoid/">http://github.com/freevoid/</a></li>
-                <li>bitbucket: <a href="https://bitbucket.org/freevoid/">https://bitbucket.org/freevoid/</a></li>
-                <li>location: Redmond, WA, USA</li>
-                <li><a href="./desh.pgp">PGP key</a></li>
-            </ul>
-
-        <h3>Life controls</h3>
-            <a href="#" onclick="return life.slower();" >slower</a>
-            <a href="#" onclick="return life.faster();" >faster</a>
-            <a href="#" onclick="return life.toggle();" >pause/continue</a>
+    <!-- Yandex.Metrika counter -->
+    <div style="display:none;">
+        <script type="text/javascript">
+            (function(w, c) {
+                (w[c] = w[c] || []).push(function() {
+                    try {
+                        w.yaCounter7774903 = new Ya.Metrika({
+                            id: 7774903,
+                            enableAll: true
+                        });
+                    } catch (e) {}
+                });
+            })(window, 'yandex_metrika_callbacks');
+        </script>
     </div>
-
-
-    <!-- Yandex.Metrika counter --><div style="display:none;"><script type="text/javascript">(function(w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter7774903 = new Ya.Metrika({id:7774903, enableAll: true}); } catch(e) { } }); })(window, 'yandex_metrika_callbacks');</script></div><script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/7774903" style="position:absolute; left:-9999px;" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
+    <script src="//mc.yandex.ru/metrika/watch.js" type="text/javascript" defer="defer"></script><noscript><div><img src="//mc.yandex.ru/watch/7774903" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 
 </body>
+
 </html>

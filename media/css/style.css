@@ -1,35 +1,18 @@
-canvas {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    z-index: -9999;
-}
-
-.content {
-    position: relative;
-    width: 70%;
-    border: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    padding: 15px;
-    margin-top: 40px;
-    border-radius: 5px;
-}
-
 body {
     background-color: #efefef;
 }
 
-.avatar {
-float: right;
+body>.grid {
+    height: 100%;
 }
 
-ul.icons {
-    float: right;
-    list-style-type: none;
+canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -9999;
 }
-.icons img {
-    padding-bottom: 1em;
-    float:right;
+
+.column {
+    max-width: 380px;
 }
