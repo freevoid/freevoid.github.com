@@ -41,7 +41,10 @@
   <body>
     <div class="ui middle aligned center aligned grid">
       <div class="column">
-        <div class="ui raised padded left aligned text fluid container segment">
+        <div
+          class="ui raised padded left aligned text fluid container segment"
+          style="background-color: rgba(255, 255, 255, 0.7)"
+        >
           <h2 class="ui image header">
             <div class="content">Nikolay Zakharov</div>
           </h2>
@@ -62,44 +65,32 @@
             </li>
           </ul>
 
-          <i
-            href="#"
-            class="backward link icon"
-            onclick="return life.slower();"
-          ></i>
-          <i
-            href="#"
-            class="pause link icon"
-            onclick="return life.toggle();"
-          ></i>
-          <i
-            href="#"
-            class="forward link icon"
-            onclick="return life.faster();"
-          ></i>
+          <div id="life-controls">
+            <i href="#" class="backward link icon" id="life-control-slower"></i>
+            <i href="#" class="pause link icon" id="life-control-toggle"></i>
+            <i href="#" class="forward link icon" id="life-control-faster"></i>
+            <a id="switch-to-fractals" href="?fractal">🔥</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <canvas id="life_canvas">No canvas?!</canvas>
+    <div id="life-canvas-container" style="display: none">
+      <canvas id="life_canvas">No canvas?!</canvas>
+    </div>
+    <div id="fractal-canvas-container" style="display: none">
+      <canvas id="fractal-canvas">No canvas?!</canvas>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-1.4.2.min.js"
       type="text/javascript"
     ></script>
-    <script src="media/js/life.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        life = new Life(document.getElementById("life_canvas"), {
-          live_color: "#dbdbdb",
-          //random_rounds: 500,
-          initial_draw: true,
-          fill_random: true,
-          redraw_interval: 1000,
-          decide_function: make_decider([2, 3], [3]), // classic life game, example of make_decider
-        });
-        life.start();
-      });
-    </script>
+    <script src="https://www.promisejs.org/polyfills/promise-7.0.4.min.js"></script>
+    <script
+      data-main="media/js/main"
+      src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"
+      type="text/javascript"
+    ></script>
   </body>
 </html>

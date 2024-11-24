@@ -1,18 +1,32 @@
 body {
-    background-color: #efefef;
+  background-color: #efefef;
 }
 
-body>.grid {
-    height: 100%;
+body > .grid {
+  height: 100%;
 }
 
 canvas {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -9999;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -9999;
 }
 
 .column {
-    max-width: 380px;
+  max-width: 380px;
+}
+
+#fractal-canvas-container {
+  background-color: #4d99b3;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -9999;
+  overflow: hidden;
+}
+
+#switch-to-fractals {
+  float:right;
+  opacity: 0.2;
 }
